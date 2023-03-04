@@ -1,0 +1,124 @@
+:root {
+    --dark: #1e272e;
+    --light: #d2dae2;
+    --muted: #485460;
+    --prime: #ff3f34;
+    --white: #ffffff;
+    --gap: 2rem;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
+html { font-size: 10px; }
+body { display: grid; place-items: center; font-family: 'Helvetica', sans-serif; font-weight: 400; font-size: 1.6rem; color: var(--light); background: var(--dark); }
+a { text-decoration: none; color: var(--muted); transition: all 250ms; }
+a:hover { color: var(--prime); }
+img { max-width: 100%; height: auto; }
+p { word-spacing: 0.3rem; line-height: 1.7; margin: 0 0 var(--gap) 0; }
+p:last-child { margin: 0; }
+h1, h2, h3, h4, h5, h6 { line-height: 1; margin: 0; padding: 0; }
+
+
+.game {
+    width: 95%;
+    max-width: 80rem;
+    margin: 2.5%;
+}
+
+.game-header {
+    border-bottom: 0.5rem solid var(--prime);
+    text-align: center;
+}
+
+.game-header .game-title {
+    text-transform: uppercase;
+}
+
+.game-header .game-title span {
+    color: var(--light);
+    transition: all 250ms;
+}
+
+.game-header .game-title:hover {
+    color: var(--light);
+}
+
+.game-header .game-title:hover span {
+    color: var(--prime);
+}
+
+.game-data {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--gap);
+    font-size: 1.2rem;
+    background: var(--muted);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.game-data-item {
+    color: var(--white);
+}
+
+.game-data-item::before,
+.game-data-item::after {
+    color: var(--light);
+}
+
+#current_clicks::before {
+    content: "Clicks: ";
+}
+
+#current_cpc::before {
+    content: "+ ";
+}
+
+#current_cpc::after {
+    content: " CPC";
+}
+
+.game-content {
+    padding: var(--gap);
+    min-height: 20rem;
+    display: grid;
+    place-items: center;
+    background: var(--white);
+}
+
+.clicker-button {
+    width: 15rem;
+    aspect-ratio: 1;
+    background: var(--muted);
+    display: grid;
+    place-items: center;
+    text-transform: uppercase;
+    border-radius: 50%;
+    font-weight: 900;
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    outline: 0.5rem solid var(--muted);
+    outline-offset: 0.2rem;
+    cursor: pointer;
+    transition: all 250ms;
+    margin: 5rem 0;
+    user-select: none;
+}
+
+.clicker-button:hover {
+    background: var(--prime);
+    outline-color: var(--prime);
+    color: var(--white);
+    transform: scale(1.1) rotate(-20deg);
+}
+
+.game-footer {
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+    padding: var(--gap);
+    background: var(--muted);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    border-top: 0.5rem solid var(--prime);
+}
