@@ -1,3 +1,4 @@
+// Buttons werden initialisiert
 const cta = {
     clicker: document.getElementById('clicker-button'),
     upgrade: {
@@ -5,6 +6,7 @@ const cta = {
     }
 }
 
+// Anzeigen werden initialisiert
 const disp = {
     clicks: document.getElementById('current_clicks'),
     cpc: document.getElementById('current_cpc'),
@@ -17,9 +19,11 @@ const disp = {
     }
 }
 
+// Current Stats
 let current_clicks = 0;
 let current_cpc = 1;
 
+// Default Upgrade Stats
 let upgradeCPC = {
     level: 1,
     cost: 50,
@@ -28,7 +32,7 @@ let upgradeCPC = {
     increaseFactor: 1.5
 }
 
-
+// Anzeigen ausgeben
 function drawDisplay() {
     disp.clicks.innerHTML = current_clicks;
     disp.cpc.innerHTML = current_cpc;
@@ -37,6 +41,7 @@ function drawDisplay() {
 
 }
 
+// Daten im localStorage speichern
 function saveData() {
     localStorage.setItem('current_clicks', current_clicks);
     localStorage.setItem('current_cpc', current_cpc);
@@ -45,6 +50,7 @@ function saveData() {
     localStorage.setItem('current_cpc_increase', upgradeCPC.increase);
 }
 
+// Daten aus dem localStorage abrufen
 function loadData() {
     current_clicks = parseInt(localStorage.getItem('current_clicks'));
     current_cpc = parseInt(localStorage.getItem('current_cpc'));
@@ -53,25 +59,30 @@ function loadData() {
     upgradeCPC.increase = parseInt(localStorage.getItem('current_cpc_increase'));
 }
 
+// Neues Spiel initialisieren
 function newGame() {
     console.log("Neues Spiel wird initialisiert ...");
     saveData();
     drawDisplay();
 }
 
+// Vorhandenen Spielstand laden
 function loadGame() {
     console.log("Spielstand wird geladen ...");
     loadData();
     drawDisplay();
 }
 
+// Clicker Event
 function generateClick() {
     current_clicks += current_cpc;
     drawDisplay();
     saveData();
 }
 
+// Upgrade kaufen
 function buyUpgrade() {
+    // Abfrage ob Clicks ausreichend sind
     if(current_clicks >= upgradeCPC.cost) {
         console.log("Kauf erfolgreich")
         current_clicks -= upgradeCPC.cost;
@@ -81,19 +92,18 @@ function buyUpgrade() {
         upgradeCPC.increase = Math.round(upgradeCPC.increase * upgradeCPC.increaseFactor);
         saveData();
         drawDisplay();
-        
     } else {
         console.log("Kauf fehlgeschlagen")
     }
 }
 
-
-
+// Beim laden der Seite Spielstatus abfragen (true / false)
 if ( localStorage.getItem('current_clicks') ) {
     loadGame();
 } else {
     newGame();
 }
 
+// Eventlistener
 cta.clicker.addEventListener('click', generateClick);
-cta.upgrade.cpc.addEventListener('click', buyUpgrade)
+cta.upgrade.cpc.addEventListener('click', buyUpgrade);
