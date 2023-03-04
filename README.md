@@ -1,2 +1,3 @@
-# My First tiny Clicker Game
+# Mein erstes Spiel
 
+> Dieses einfache Clicker Game habe ich bereits 2006 erstellt gehabt. Jedoch war der Quellcode ziemlich veraltet. Also habe ich am Code einfach nur soviel verändert, das dieser wieder funktioniert und ein ziemlich minimalistisches Design entworfen. 
