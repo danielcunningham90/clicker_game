@@ -112,6 +112,33 @@ h1, h2, h3, h4, h5, h6 { line-height: 1; margin: 0; padding: 0; }
     transform: scale(1.1) rotate(-20deg);
 }
 
+.game-upgrades {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-upgrades h3 {
+    margin: 0 0 var(--gap) 0;
+}
+
+.upgrade-button {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: var(--gap);
+    background: var(--light);
+    color: var(--white);
+    text-align: center;
+    cursor: pointer;
+    transition: all 250ms;
+}
+
+.upgrade-button:hover {
+    background: var(--prime);
+}
+
 .game-footer {
     font-size: 1.2rem;
     font-style: italic;
